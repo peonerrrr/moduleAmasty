@@ -1,0 +1,22 @@
+{
+  "name": "vendor/module",
+  "description": "summary",
+  "license": [
+    "OSL-3.0"
+  ],
+  "type": "magento2-module",
+  "version": "0.0.2",
+  "authors": [
+    {
+      "name": "Ilya Hrynevich",
+      "email": "peonerrrr@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Vendor\\Module\\": ""
+    }
+  }
+}

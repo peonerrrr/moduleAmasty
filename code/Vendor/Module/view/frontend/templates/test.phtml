@@ -1,0 +1,25 @@
+<?php
+$productCollection = $block->getProductCollection();
+if(!empty($_POST['sku'])){
+    $sku = $_POST['sku'];
+    echo $sku;
+}
+
+foreach ($productCollection as $product) {
+    if($sku == $product->getData()['sku']){
+        echo '<pre>';
+        print_r($product->getData());
+        echo '</pre>';
+    }
+    echo "<br>";
+}
+
+?>
+
+<label>Url
+    <form method="post">
+        <input type="text" id="input" name="sku">
+        <input type="submit" value="add to cart" id="addToCart">
+    </form>
+</label>
+
