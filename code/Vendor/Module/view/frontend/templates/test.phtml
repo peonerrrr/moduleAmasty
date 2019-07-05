@@ -1,18 +1,7 @@
 <?php
-$productCollection = $block->getProductCollection();
-if(!empty($_POST['sku'])){
-    $sku = $_POST['sku'];
-    echo $sku;
-}
 
-foreach ($productCollection as $product) {
-    if($sku == $product->getData()['sku']){
-        echo '<pre>';
-        print_r($product->getData());
-        echo '</pre>';
-    }
-    echo "<br>";
-}
+
+$block->getProductSku();
 
 ?>
 
