@@ -1,14 +1,11 @@
 <?php
-
-
-$block->getProductSku();
-
+/** @var \Vendor\Module\Block\Test $block */
 ?>
-
 <label>Url
-    <form method="post">
-        <input type="text" id="input" name="sku">
+    <form id="addToCartByScuProduct" method="post" action="checkout/cart/add">
+        <input id="sku" type="text" id="input" name="sku">
         <input type="submit" value="add to cart" id="addToCart">
+        <?= $block->getBlockHtml('formkey') ?>
     </form>
 </label>
 

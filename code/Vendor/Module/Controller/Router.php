@@ -24,8 +24,7 @@ class Router implements \Magento\Framework\App\RouterInterface
         $identifier = trim($request->getPathInfo(), '/');
 
 
-        if($identifier == $url
-        && $request->getModuleName() != 'vendormodule') {
+        if($identifier == $url && $request->getModuleName() != 'vendormodule') {
 
             $request->setModuleName('vendormodule')-> //module name
             setControllerName('index')-> //controller name
