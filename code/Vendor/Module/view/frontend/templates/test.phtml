@@ -7,5 +7,24 @@
         <input type="submit" value="add to cart" id="addToCart">
         <?= $block->getBlockHtml('formkey') ?>
     </form>
+    <script type="text/javascript">
+        require(['jquery'], function ($) {
+            'use strict';
+            $(document).ready(function(){
+                $("#sku").on('input', function(){
+
+                    $.ajax({
+                        url: "<?php echo $this->getUrl('module/autocomplete/index'); ?>",
+                        data: $(this).val(),
+                        type: 'post',
+                        success: function(data){
+                            console.log(data);
+                        }
+                    })
+                });
+            });
+        });
+
+    </script>
 </label>
 

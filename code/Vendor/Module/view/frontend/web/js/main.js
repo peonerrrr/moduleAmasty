@@ -11,19 +11,6 @@ require(['jquery'], function ($) {
                 type: 'post',
             })
         });
-
-        $('#sku ').on('keyup', function(e){
-            e.preventDefault();
-            debugger;
-            $.ajax({
-                url: ,
-                data: $(this).serialize(),
-                type: 'post',
-                success: function(data){
-                    console.log(data);
-                }
-            })
-        });
     });
 });
 

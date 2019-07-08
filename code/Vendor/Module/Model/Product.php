@@ -75,8 +75,8 @@ class Product extends \Magento\Framework\Model\AbstractModel implements \Magento
             $this->message->addErrorMessage(__("Error"));
         }
     }
-    public function getCollectionproducts(){
-        $sku = $this->request->getPost('sku');
-        echo $sku;
+    public function getCollectionProducts()
+    {
+        echo 'dasfas';
     }
 }
