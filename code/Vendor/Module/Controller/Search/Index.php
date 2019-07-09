@@ -1,5 +1,5 @@
 <?php
-namespace Vendor\Module\Controller\Index;
+namespace Vendor\Module\Controller\Search;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -29,17 +29,20 @@ class Index extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $result = $this->resultJsonFactory->create();
-
+        $productsArray = [];
         if ($this->getRequest()->isAjax())
         {
 
-            $test = $this->getRequest()->getPost();
-            $array =  (array) $test;
-            $keys = array_keys($array);
-            foreach ($keys as $key){
-                return $this->_productCollectionFactory->addAttributeToFilter('sku', array('like' => $key.'%'));
+            $test = $this->getRequest()->getPost('sku');
+            $collection = $this->_productCollectionFactory->create()
+                ->addAttributeToSelect('*')
+                ->addAttributeToFilter('sku', ['like' => $test.'%']);
+
+            foreach ($collection as $product){
+                array_push($productsArray, $product->getData());
             }
-               return $result->setData($test);
+
+                return $result->setData($productsArray);
         }
         return $this->_pageFactory->create();
     }

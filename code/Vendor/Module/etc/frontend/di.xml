@@ -8,12 +8,12 @@
                     <item name="disable" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="string">25</item>
                 </item>
-            </argument>
+               </argument>
         </arguments>
     </type>
 
     <type name="Magento\Checkout\Controller\Cart\Add">
-        <plugin disabled="false" name="Vendor_Module_Plugin_Magento_Checkout_Controller_Cart_Add" sortOrder="10" type="Vendor\Module\Plugin\CartAdd"/>
+        <plugin disabled="false" name="Vendor_Module_Plugin_CartAdd" sortOrder="10" type="Vendor\Module\Plugin\CartAdd"/>
     </type>
 
 
