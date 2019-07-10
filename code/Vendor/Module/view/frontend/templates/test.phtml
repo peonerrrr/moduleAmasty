@@ -2,7 +2,7 @@
 /** @var \Vendor\Module\Block\Test $block */
 ?>
 <label>Url
-    <form id="addToCartByScuProduct" method="post" action="checkout/cart/add">
+    <form id="addToCartByScuProduct" method="post" action="/checkout/cart/add">
         <input id="sku" type="text" name="sku">
         <input type="submit" value="add to cart" id="addToCart">
         <?= $block->getBlockHtml('formkey') ?>
@@ -12,7 +12,7 @@
         <div class="header">
             <h4>CSV File:</h4>
         </div>
-        <form class="import-shipping-form" action="/vendormodule/model/csvimporthandler" method="POST" enctype="multipart/form-data">
+        <form class="import-shipping-form" action="/vendormodule/import/index" method="POST" enctype="multipart/form-data">
             <?php echo $block->getBlockHtml('formkey'); ?>
             <input type="file" required class="required-entry" name="csv" />
             <button type="submit">Import</button>
@@ -38,11 +38,10 @@
                             type: 'post',
                             dataType: 'text',
                             success: function (data) {
-
                                 var val = JSON.parse(data);
                                 $('.products-list').show('fast').html('');
                                 $.each(val, function(index, value){
-                                    var src = 'pub/media/catalog/product' + value.image;
+                                    var src = '/pub/media/catalog/product' + value.image;
                                     $('.products-list').append('<li><p>'+ value.name +'</p><p class="productScu">'+ value.sku +'</p><img src='+ src +'> </li>');
                                 })
 

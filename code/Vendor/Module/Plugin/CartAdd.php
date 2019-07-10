@@ -10,8 +10,7 @@ class CartAdd
 
     public function __construct(
         Product $product
-    )
-    {
+    ) {
         $this->product = $product;
     }
 
@@ -20,6 +19,7 @@ class CartAdd
     ) {
         $this->product->setParamsBeforeAddToCartProduct();
         //Your plugin code
+
         return [];
     }
 }

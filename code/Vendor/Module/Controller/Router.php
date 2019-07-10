@@ -5,18 +5,31 @@ use Vendor\Module\Helper\Data;
 
 class Router implements \Magento\Framework\App\RouterInterface
 {
+    /**
+     * @var \Magento\Framework\App\ActionFactory
+     */
     protected $actionFactory;
-    protected $_response;
+    /**
+     * @var \Magento\Framework\App\ResponseInterface
+     */
+    protected $response;
+    /**
+     * @var Data
+     */
     protected $helperData;
+
     public function __construct(
         \Magento\Framework\App\ActionFactory $actionFactory,
-        \Magento\Framework\App\ResponseInterface $response,
         Data $helperData
     ) {
         $this->actionFactory = $actionFactory;
-        $this->_response = $response;
         $this->helperData = $helperData;
     }
+
+    /**
+     * @param \Magento\Framework\App\RequestInterface $request
+     * @return bool
+     */
     public function match(\Magento\Framework\App\RequestInterface $request)
     {
 

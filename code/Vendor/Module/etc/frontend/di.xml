@@ -15,6 +15,4 @@
     <type name="Magento\Checkout\Controller\Cart\Add">
         <plugin disabled="false" name="Vendor_Module_Plugin_CartAdd" sortOrder="10" type="Vendor\Module\Plugin\CartAdd"/>
     </type>
-
-
 </config>

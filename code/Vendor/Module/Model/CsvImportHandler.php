@@ -15,10 +15,14 @@ class CsvImportHandler
 
     public function __construct(
         \Magento\Framework\File\Csv $csvProcessor
-    )
-    {
+    ) {
         $this->csvProcessor = $csvProcessor;
     }
+
+    /**
+     * @param $file
+     * @return array
+     */
     public function importFromCsvFile($file)
     {
         if (!isset($file['tmp_name'])) {
@@ -29,5 +33,6 @@ class CsvImportHandler
         foreach ($importProductRawData as $indexRow => $dataRow) {
             array_push($arrayProduct, $dataRow);
         }
+        return $arrayProduct;
     }
 }

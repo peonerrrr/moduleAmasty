@@ -32,7 +32,6 @@ class Index extends \Magento\Framework\App\Action\Action
         $productsArray = [];
         if ($this->getRequest()->isAjax())
         {
-
             $test = $this->getRequest()->getPost('sku');
             $collection = $this->_productCollectionFactory->create()
                 ->addAttributeToSelect('*')

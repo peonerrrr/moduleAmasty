@@ -1,4 +1,5 @@
 <?php
+
 namespace Vendor\Module\Setup;
 
 class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
@@ -8,9 +9,9 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
     {
         $installer = $setup;
         $installer->startSetup();
-        if (!$installer->tableExists('vendor_module_post')) {
+        if (!$installer->tableExists('vendor_module_items')) {
             $table = $installer->getConnection()->newTable(
-                $installer->getTable('vendor_module_post')
+                $installer->getTable('vendor_module_items')
             )
                 ->addColumn(
                     'post_id',
@@ -32,41 +33,6 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
                     'Post Name'
                 )
                 ->addColumn(
-                    'url_key',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    255,
-                    [],
-                    'Post URL Key'
-                )
-                ->addColumn(
-                    'post_content',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    '64k',
-                    [],
-                    'Post Post Content'
-                )
-                ->addColumn(
-                    'tags',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    255,
-                    [],
-                    'Post Tags'
-                )
-                ->addColumn(
-                    'status',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-                    1,
-                    [],
-                    'Post Status'
-                )
-                ->addColumn(
-                    'featured_image',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                    255,
-                    [],
-                    'Post Featured Image'
-                )
-                ->addColumn(
                     'created_at',
                     \Magento\Framework\DB\Ddl\Table::TYPE_TIMESTAMP,
                     null,
@@ -82,13 +48,13 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
             $installer->getConnection()->createTable($table);
 
             $installer->getConnection()->addIndex(
-                $installer->getTable('vendor_module_post'),
+                $installer->getTable('vendor_module_items'),
                 $setup->getIdxName(
-                    $installer->getTable('vendor_module_post'),
-                    ['name','url_key','post_content','tags','featured_image'],
+                    $installer->getTable('vendor_module_items'),
+                    ['name'],
                     \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
                 ),
-                ['name','url_key','post_content','tags','featured_image'],
+                ['name'],
                 \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
             );
         }
