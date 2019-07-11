@@ -7,5 +7,4 @@
     <referenceContainer name="content">
         <block class="Vendor\Module\Block\Test" name="vendormodule_index_index" template="Vendor_Module::test.phtml" />
     </referenceContainer>
-
 </page>

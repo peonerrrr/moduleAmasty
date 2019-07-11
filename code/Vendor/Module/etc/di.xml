@@ -9,7 +9,7 @@
     </type>
     <virtualType name="Vendor\Module\Model\ResourceModel\Item\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">quote_item</argument>
+            <argument name="mainTable" xsi:type="string">vendor_module_items</argument>
             <argument name="resourceModel" xsi:type="string">Vendor\Module\Model\ResourceModel\Item</argument>
         </arguments>
     </virtualType>

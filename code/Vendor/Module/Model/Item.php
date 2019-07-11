@@ -2,7 +2,7 @@
 namespace Vendor\Module\Model;
 class Item extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface
 {
-    const CACHE_TAG = 'vendor_module_item';
+    const CACHE_TAG = 'vendor_module_items';
 
     protected function _construct()
     {
@@ -13,4 +13,5 @@ class Item extends \Magento\Framework\Model\AbstractModel implements \Magento\Fr
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
+
 }

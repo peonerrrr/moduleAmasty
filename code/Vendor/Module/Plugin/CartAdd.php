@@ -2,14 +2,18 @@
 
 namespace Vendor\Module\Plugin;
 
-use Vendor\Module\Model\Product;
+use Vendor\Module\Controller\Cart\Index;
 
+/**
+ * Class CartAdd
+ * @package Vendor\Module\Plugin
+ */
 class CartAdd
 {
     protected $product;
 
     public function __construct(
-        Product $product
+        Index $product
     ) {
         $this->product = $product;
     }
@@ -17,9 +21,8 @@ class CartAdd
     public function beforeExecute(
         \Magento\Checkout\Controller\Cart\Add $subject
     ) {
-        $this->product->setParamsBeforeAddToCartProduct();
+        $this->product->execute();
         //Your plugin code
-
         return [];
     }
 }

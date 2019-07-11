@@ -4,6 +4,7 @@
 <label>Url
     <form id="addToCartByScuProduct" method="post" action="/checkout/cart/add">
         <input id="sku" type="text" name="sku">
+        <input id="url" type="hidden" name="url" value="<?php echo $this->getUrl('vendormodule/index/index') ?>">
         <input type="submit" value="add to cart" id="addToCart">
         <?= $block->getBlockHtml('formkey') ?>
     </form>
@@ -27,11 +28,15 @@
         require(['jquery'], function ($) {
             'use strict';
             $(document).ready(function(){
+                let request;
                 let minLenght = 3;
                 $("#sku").on('input', function () {
+                    if(request != undefined){
+                        request.abort();
+                    }
                     if($(this).val().length >= minLenght) {
                         var sku = $('#sku').val();
-                        $.ajax({
+                        request = $.ajax({
                             showLoader: true,
                             url: "<?php echo $this->getUrl('vendormodule/search/index'); ?>",
                             data: { sku },

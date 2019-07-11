@@ -6,4 +6,5 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     {
         $this->_init('Vendor\Module\Model\Item','Vendor\Module\Model\ResourceModel\Item');
     }
+
 }
