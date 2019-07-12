@@ -1,0 +1,17 @@
+<div class="note">
+    <a class="action popup-open" href="#">
+        <span><?php echo __('Please, click to open popup') ?></span>
+    </a>
+</div>
+<div id="popup" style="display: none;">
+</div>
+    <?php echo $this->getChildHtml('popup') ?>
+    <?php echo $this->getHtmlBlock() ?>
+</div>
+<script type="text/x-magento-init">
+{
+   "#product-addtocart-button": {
+       "Vendor_Module/js/popup": {}
+   }
+}
+</script>

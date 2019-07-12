@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>My page</title>
+        <script src="Vendor_Module::js/main.js" />
+    </head>
+    <body>
+        <referenceContainer name="footer">
+            <block class="Vendor\Module\Block\PopupBlock" name="popup" as="popup" template="Vendor_Module::popup.phtml" after="-">
+                <block class="Magento\Cms\Block\Block" name="popup-content">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">popup-content</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
